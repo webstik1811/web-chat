@@ -1,11 +1,24 @@
 import { model, Model, Schema } from 'mongoose';
 
+/**
+ * Represents a user.
+ * @interface
+ */
 export interface IUser {
   name: string;
   email: string;
   image?: string;
 }
 
+/**
+ * Represents the schema for the User model.
+ *
+ * @typedef {import('mongoose').Schema} Schema
+ * @typedef {import('mongoose').Document} Document
+ * @typedef {{ name: string, email: string, image?: string }} IUser
+ *
+ * @type {Schema<IUser, Document>}
+ */
 export const userModelSchema = new Schema<IUser>({
   name: {
     type: String,

@@ -7,6 +7,10 @@ import { serializeMongooseObject } from '@libs/utils';
 import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
 
+/**
+ * Initializes the web chat application.
+ * @returns {HTMLElement} The root element of the web chat application.
+ */
 export default async function WebChat() {
   const session = await getServerSession(authOptions) as {user: IUser}
 

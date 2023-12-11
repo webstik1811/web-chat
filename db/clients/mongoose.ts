@@ -12,6 +12,20 @@ const handleConnectionSuccess = () => {
   console.log('MongoDB Connected');
 };
 
+/**
+ * Establishes a connection to the MongoDB database using the provided environment variable.
+ *
+ * @throws {Error} If the "MONGODB_URI" environment variable is missing or invalid.
+ *
+ * @async
+ * @function dbConnect
+ *
+ * @returns {Promise<void>} A promise that resolves when the connection is established or rejects on an error.
+ *
+ * @example
+ * // Usage
+ * await dbConnect();
+ */
 const dbConnect = async () => {
   if (!process.env.MONGODB_URI) {
     throw new Error('Invalid/Missing environment variable: "MONGODB_URI"');

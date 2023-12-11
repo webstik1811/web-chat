@@ -1,6 +1,11 @@
 "use client";
 import { signIn } from 'next-auth/react';
 
+/**
+ * Renders a login button for GitHub login.
+ *
+ * @return {JSX.Element} The login button component.
+ */
 export function MainLogin() {
   return (
     <button

@@ -1,4 +1,9 @@
-export const getBaseUrl = () => {
+/**
+ * Returns the base URL based on the current environment.
+ *
+ * @returns {string} The base URL
+ */
+export const getBaseUrl = (): string => {
   if (typeof window !== 'undefined')
     // browser should use relative path
     return '';
@@ -12,7 +17,13 @@ export const getBaseUrl = () => {
   return `http://localhost:${process.env.PORT ?? 3000}`;
 }
 
-export const serializeMongooseObject = (item: any) => ({
+/**
+ * Serializes a Mongoose object into a plain JavaScript object.
+ *
+ * @param {any} item - The Mongoose object to be serialized.
+ * @returns {Object} - The serialized version of the Mongoose object.
+ */
+export const serializeMongooseObject = (item: any): object => ({
   id: item._id.toString(),
   _id: item._id.toString(),
   msg: item.msg,

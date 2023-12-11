@@ -2,9 +2,18 @@
 import { IChatItem } from '@db/models/chat-items';
 import { IUser } from '@db/models/user';
 import clsx from 'clsx';
-import { useState } from 'react';
 import TimeAgo from 'timeago-react';
 
+/**
+ * Renders a chat message based on the given item and user.
+ *
+ * @param {Object} params - The parameters for the chat message.
+ * @param {Object} params.item - The chat item object.
+ * @param {Object} params.user - The user object.
+ * @param {string} params.user.email - The email of the user.
+ *
+ * @return {JSX.Element} - The chat message component.
+ */
 export default function ChatMessage({ item, user }: {
   item: IChatItem,
   user: IUser

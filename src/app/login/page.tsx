@@ -4,7 +4,13 @@ import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
 import React from 'react';
 
-export default async function Home() {
+/**
+ * Executes the Login method.
+ *
+ * @returns {JSX.Element} The main component to be rendered on the home page.
+ * @async
+ */
+export default async function Login() {
   const session = await getServerSession(authOptions);
 
   if (session) {
