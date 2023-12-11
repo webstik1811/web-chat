@@ -1,3 +1,4 @@
+import dbConnect from '@db/clients/mongoose';
 import ChatItemModel from '@db/models/chat-items';
 import { chatItemsSchema } from '@db/schemas/chat-items-schema';
 import { publicProcedure, router } from '@server/trpc';
@@ -5,7 +6,8 @@ import { z } from 'zod';
 
 const chatItemRouter = router({
   list: publicProcedure.query(async () => {
-    console.log(ChatItemModel);
+    await dbConnect();
+
     try {
       return ChatItemModel.find();
     } catch (error) {
