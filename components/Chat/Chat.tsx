@@ -5,6 +5,14 @@ import { serverClient } from '@containers/trpc/serverClient';
 import { IUser } from '@db/models/user';
 import React, { useEffect, useRef, useState } from 'react';
 
+/**
+ * Renders a chat component.
+ *
+ * @param {Object} props - The props for the Chat component.
+ * @param {Array} props.initialChatItems - The initial chat items to display in the chat.
+ * @param {Object} props.user - The user object for the current user.
+ * @returns {React.Component} The rendered Chat component.
+ */
 export default function Chat({initialChatItems = [], user}: {
   initialChatItems: Awaited<ReturnType<(typeof serverClient)['chatItems']['list']>>,
   user: IUser
