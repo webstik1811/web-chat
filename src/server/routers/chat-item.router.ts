@@ -5,7 +5,13 @@ import { z } from 'zod';
 
 const chatItemRouter = router({
   list: publicProcedure.query(async () => {
-    return ChatItemModel.find();
+    console.log(1234);
+    try {
+      return ChatItemModel.find();
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
   }),
   add: publicProcedure.input(z.object(chatItemsSchema)).mutation(async (opts) => {
     return await ChatItemModel.create(opts.input)
