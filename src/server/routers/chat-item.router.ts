@@ -9,7 +9,7 @@ const chatItemRouter = router({
     await dbConnect();
 
     try {
-      return ChatItemModel.find();
+      return await ChatItemModel.find().exec();
     } catch (error) {
       console.error(error);
       throw error;
