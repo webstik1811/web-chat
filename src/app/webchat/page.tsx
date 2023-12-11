@@ -14,8 +14,8 @@ export default async function WebChat() {
      redirect('/login');
   }
 
-  const data = await serverClient.chatItems.list();
-  const initialChatItems: IChatItem[] = data.map(item => serializeMongooseObject(item));
+  //const data = await serverClient.chatItems.list();
+  const initialChatItems: IChatItem[] = [];//data.map(item => serializeMongooseObject(item));
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-24">
       <div className="flex flex-col flex-grow w-full max-w-xl bg-white shadow-xl rounded-lg overflow-hidden">
