@@ -21,7 +21,7 @@ export default function Chat({initialChatItems = [], user}: {
     if (getChatItems?.data?.length) {
       scrollRef.current?.scrollIntoView()
     }
-  }, [getChatItems])
+  }, [getChatItems.data])
 
   useEffect(() => {
     const interval = setInterval(() => getChatItems.refetch(), 5000);
