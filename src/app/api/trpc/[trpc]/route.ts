@@ -9,6 +9,7 @@ const handler = (req: Request) =>
     req,
     router: appRouter,
     createContext: async () => {
+      console.log(' createContext dbConnnect')
       await dbConnect();
       return {};
     },

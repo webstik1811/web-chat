@@ -24,5 +24,5 @@ try {
 } catch (e) {
   ChatItemModel = model('ChatItem')
 }
-console.log(ChatItemModel);
+
 export default ChatItemModel;

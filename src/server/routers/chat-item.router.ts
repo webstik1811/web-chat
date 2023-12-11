@@ -5,7 +5,7 @@ import { z } from 'zod';
 
 const chatItemRouter = router({
   list: publicProcedure.query(async () => {
-    console.log(1234);
+    console.log(ChatItemModel);
     try {
       return ChatItemModel.find();
     } catch (error) {
