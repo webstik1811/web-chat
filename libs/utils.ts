@@ -1,3 +1,5 @@
+import { IChatItem } from '@db/models/chat-items';
+
 /**
  * Returns the base URL based on the current environment.
  *
@@ -23,7 +25,7 @@ export const getBaseUrl = (): string => {
  * @param {any} item - The Mongoose object to be serialized.
  * @returns {Object} - The serialized version of the Mongoose object.
  */
-export const serializeMongooseObject = (item: any): object => ({
+export const serializeMongooseObject = (item: any): IChatItem => ({
   id: item._id.toString(),
   _id: item._id.toString(),
   msg: item.msg,
