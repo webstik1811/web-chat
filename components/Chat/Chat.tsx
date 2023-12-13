@@ -22,7 +22,9 @@ export default function Chat({initialChatItems = [], user}: {
   const [msg, setMsg] = useState<string>('');
 
   const getChatItems = trpc.chatItems.list.useQuery(undefined, {
-    initialData: initialChatItems
+    initialData: initialChatItems,
+    refetchOnMount: false,
+    refetchOnReconnect: false,
   })
 
   useEffect(() => {

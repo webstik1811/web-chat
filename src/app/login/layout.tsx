@@ -20,7 +20,7 @@ const inter = Inter({ subsets: ['latin'] })
  * @property {string} description - The description of the variable.
  */
 export const metadata: Metadata = {
-  title: 'Login with yout GitHub account please!',
+  title: 'Login with your GitHub account please!',
   description: 'This is simple Rest API based web chat system',
 }
 
