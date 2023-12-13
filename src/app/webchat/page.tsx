@@ -1,9 +1,8 @@
 import Chat from '@components/Chat/Chat';
-import { createClient, serverClient } from '@containers/trpc/serverClient';
-import dbConnect from '@db/clients/mongoose';
+import { MainLogout } from '@components/Logout/MainLogout';
+import { serverClient } from '@containers/trpc/serverClient';
 import ChatItemModel, { IChatItem } from '@db/models/chat-items';
 import { IUser } from '@db/models/user';
-import { chatItemsSchema } from '@db/schemas/chat-items-schema';
 import { authOptions } from '@libs/auth';
 import { serializeMongooseObject } from '@libs/utils';
 import { getServerSession } from 'next-auth';
@@ -25,6 +24,7 @@ export default async () => {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-24">
+      <div className="absolute top-2.5 right-2.5"><MainLogout/></div>
       <div className="flex flex-col flex-grow w-full max-w-xl bg-white shadow-xl rounded-lg overflow-hidden">
         <Chat initialChatItems={initialChatItems} user={session?.user}/>
       </div>

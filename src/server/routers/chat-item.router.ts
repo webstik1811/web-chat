@@ -1,4 +1,3 @@
-import dbConnect from '@db/clients/mongoose';
 import ChatItemModel from '@db/models/chat-items';
 import { chatItemsSchema } from '@db/schemas/chat-items-schema';
 import { publicProcedure, router } from '@server/trpc';
