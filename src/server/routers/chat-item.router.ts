@@ -17,8 +17,6 @@ import { z } from 'zod';
  */
 const chatItemRouter = router({
   list: publicProcedure.query(async () => {
-    await dbConnect();
-
     try {
       return await ChatItemModel.find().exec();
     } catch (error) {

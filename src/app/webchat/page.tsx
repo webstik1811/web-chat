@@ -1,7 +1,9 @@
 import Chat from '@components/Chat/Chat';
-import { serverClient } from '@containers/trpc/serverClient';
-import { IChatItem } from '@db/models/chat-items';
+import { createClient, serverClient } from '@containers/trpc/serverClient';
+import dbConnect from '@db/clients/mongoose';
+import ChatItemModel, { IChatItem } from '@db/models/chat-items';
 import { IUser } from '@db/models/user';
+import { chatItemsSchema } from '@db/schemas/chat-items-schema';
 import { authOptions } from '@libs/auth';
 import { serializeMongooseObject } from '@libs/utils';
 import { getServerSession } from 'next-auth';
@@ -11,15 +13,14 @@ import { redirect } from 'next/navigation';
  * Initializes the web chat application.
  * @returns {HTMLElement} The root element of the web chat application.
  */
-export default async function WebChat() {
+export default async () => {
   const session = await getServerSession(authOptions) as {user: IUser}
 
   if (!session) {
      redirect('/login');
   }
 
-
-  const data = await serverClient.chatItems.list();
+  const data: typeof ChatItemModel[] = await serverClient.chatItems.list();
   const initialChatItems: IChatItem[] = data.map(item => serializeMongooseObject(item));
 
   return (

@@ -1,3 +1,4 @@
+import dbConnect from '@db/clients/mongoose';
 import { getBaseUrl } from '@libs/utils';
 import { appRouter } from '@server/routers/_app';
 import { httpBatchLink } from '@trpc/client';
@@ -5,15 +6,21 @@ import { httpBatchLink } from '@trpc/client';
 const TRPC_API_URL = `${getBaseUrl()}/api/trpc`;
 
 /**
- * Creates a server client for making API calls.
- * @param {Object} config - Configuration for creating the server client.
- * @param {Array} config.links - An array of link objects for making HTTP requests.
- * @returns {Object} - The server client object with methods for making API calls.
+ * Asynchronously creates a client for making requests to the TRPC API and
+ * establish a connection to database
+ *
+ * @returns {Promise<Caller>} A promise that resolves to a TRPC API client.
  */
-export const serverClient = appRouter.createCaller({
-  links: [
-    httpBatchLink({
-      url: TRPC_API_URL,
-    }),
-  ],
-});
+export const createClient = async () => {
+  await dbConnect();
+  return appRouter.createCaller({
+    links: [
+      httpBatchLink({
+        url: TRPC_API_URL,
+      }),
+    ],
+  });
+}
+
+
+export const serverClient = await createClient()
