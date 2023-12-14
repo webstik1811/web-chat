@@ -5,8 +5,21 @@ import ChatItemModel, { IChatItem } from '@db/models/chat-items';
 import { IUser } from '@db/models/user';
 import { authOptions } from '@libs/auth';
 import { serializeMongooseObject } from '@libs/utils';
+import { Metadata } from 'next';
 import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
+
+/**
+ * Represents the metadata for a web chat system.
+ *
+ * @typedef {Object} Metadata
+ * @property {string} title - The title of the web chat system.
+ * @property {string} description - A description of the web chat system.
+ */
+export const metadata: Metadata = {
+  title: 'WebChat system by Nick',
+  description: 'This is simple Rest API based web chat system',
+}
 
 /**
  * Initializes the web chat application.

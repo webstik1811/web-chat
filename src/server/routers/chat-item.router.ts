@@ -15,7 +15,10 @@ import { z } from 'zod';
  * @returns {Promise<Object>} - the newly added chat item
  */
 const chatItemRouter = router({
-  list: publicProcedure.query(async () => {
+  list: publicProcedure.query(async ({ctx}: { ctx: any }) => {
+    // Извличане на locale от контекста
+    const { locale } = ctx;
+    console.log('LOCALE', locale)
     try {
       return await ChatItemModel.find().exec();
     } catch (error) {

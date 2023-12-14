@@ -1,8 +1,21 @@
 import { MainLogin } from '@components/Login/MainLogin';
 import { authOptions } from '@libs/auth';
+import { Metadata } from 'next';
 import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
 import React from 'react';
+
+/**
+ * Represents the metadata for a variable.
+ *
+ * @typedef {Object} Metadata
+ * @property {string} title - The title of the variable.
+ * @property {string} description - The description of the variable.
+ */
+export const metadata: Metadata = {
+  title: 'Login with your GitHub account please!',
+  description: 'This is simple Rest API based web chat system',
+}
 
 /**
  * Executes the Login method.
